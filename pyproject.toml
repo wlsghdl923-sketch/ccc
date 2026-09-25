@@ -7,16 +7,18 @@ name = "wmremover"
 version = "0.1.0"
 description = "Automatic watermark detection and removal for images"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = ["numpy", "opencv-python-headless"]
 
 [project.optional-dependencies]
 # LaMa inpainting and the CRAFT text detector both need PyTorch.
 full = ["torch", "easyocr"]
+app = ["gradio"]
 dev = ["pytest", "pillow"]
 
 [project.scripts]
 wmremover = "wmremover.cli:main"
+wmremover-app = "wmremover.app:main"
 
 [tool.setuptools]
 packages = ["wmremover"]

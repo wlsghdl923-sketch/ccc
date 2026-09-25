@@ -47,6 +47,11 @@ def _remove_small(mask: np.ndarray, min_area: int) -> np.ndarray:
 
 # ---------------------------------------------------------------- consensus
 
+_FILL_FRAC = 0.3
+_CLOSE = 3
+_WEAK = 0.45
+
+
 def detect_consensus(images: list[np.ndarray], min_images: int = 3) -> list[np.ndarray | None]:
     """Masks for images that share a watermark with >= ``min_images - 1`` others.
 
@@ -73,7 +78,11 @@ def detect_consensus(images: list[np.ndarray], min_images: int = 3) -> list[np.n
         # five images may disagree (e.g. a white mark over a white sky).
         n = len(idx)
         q = int(0.2 * n) / (n - 1)
-        ax, ay = _agreeing(np.stack(gx), q), _agreeing(np.stack(gy), q)
+        gx, gy = np.stack(gx), np.stack(gy)
+        ax, ay = _agreeing(gx, q), _agreeing(gy, q)
+        # Majority vote (median) for the weak edges below: a mark over a
+        # bright area is faint in many images, so the strict quantile misses it.
+        mx, my = np.median(gx, axis=0), np.median(gy, axis=0)
         del gx, gy
         mag = np.hypot(ax, ay)
 
@@ -81,6 +90,16 @@ def detect_consensus(images: list[np.ndarray], min_images: int = 3) -> list[np.n
         # magnitude is ~0 off the watermark; its bulk gives the noise floor.
         thr = max(24.0, 4.0 * float(np.percentile(mag, 95)))
         edges = _remove_small((mag > thr).astype(np.uint8) * 255, max(4, (h * w) // 100_000))
+        if edges.any():
+            # Hysteresis, as in Canny: weaker edges near the strong ones count
+            # when they connect to them. Recovers strokes where several
+            # images show the mark only faintly.
+            near = cv2.dilate(edges, _ellipse(_odd(max(h, w) / 40))) > 0
+            weak = ((mag > _WEAK * thr) | (np.hypot(mx, my) > thr)) & near
+            edges = _hysteresis(edges, weak.astype(np.uint8) * 255)
+            # Where the median is what found an edge, use it for the shape too.
+            use_med = (edges > 0) & (np.abs(ax) + np.abs(ay) < np.abs(mx) + np.abs(my))
+            ax, ay = np.where(use_med, mx, ax), np.where(use_med, my, ay)
         if not edges.any():
             log.info("consensus: no shared watermark in %d images of %dx%d", len(idx), w, h)
             continue
@@ -90,14 +109,23 @@ def detect_consensus(images: list[np.ndarray], min_images: int = 3) -> list[np.n
         keep = cv2.dilate(edges, _ellipse(3)) > 0
         shape = np.abs(_poisson(np.where(keep, ax, 0) / 8, np.where(keep, ay, 0) / 8))
         shape -= np.median(shape)
-        t = max(2.0, 0.3 * float(np.percentile(shape[edges > 0], 90)))
+        t = max(2.0, _FILL_FRAC * float(np.percentile(shape[edges > 0], 90)))
         mask = ((shape > t) | (edges > 0)).astype(np.uint8) * 255
-        mask = _remove_small(cv2.morphologyEx(mask, cv2.MORPH_CLOSE, _ellipse(3)),
+        mask = _remove_small(cv2.morphologyEx(mask, cv2.MORPH_CLOSE, _ellipse(_CLOSE)),
                              max(4, (h * w) // 100_000))
         mask = cv2.dilate(mask, _ellipse(5))
         for i in idx:
             masks[i] = mask.copy()
     return masks
+
+
+def _hysteresis(strong: np.ndarray, weak: np.ndarray) -> np.ndarray:
+    """Components of ``weak`` that contain at least one ``strong`` pixel."""
+    n, labels = cv2.connectedComponents(weak | strong, connectivity=8)
+    keep = np.zeros(n, bool)
+    keep[np.unique(labels[strong > 0])] = True
+    keep[0] = False
+    return np.where(keep[labels], 255, 0).astype(np.uint8)
 
 
 def _agreeing(g: np.ndarray, q: float) -> np.ndarray:
@@ -225,9 +253,8 @@ def detect(images: list[np.ndarray], methods: tuple[str, ...] = METHODS,
     if "text" in methods and not all(done):
         try:
             _get_reader()
-        except ImportError:
-            log.warning("easyocr is not installed; the text detector is disabled "
-                        "(pip install easyocr)")
+        except Exception as exc:  # not installed, or torch fails to load its DLLs
+            log.warning("text detector unavailable (%s); only batch detection is used", exc)
             return masks
         for i, img in enumerate(images):
             if not done[i]:
