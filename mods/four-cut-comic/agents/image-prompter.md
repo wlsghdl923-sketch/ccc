@@ -14,7 +14,7 @@ model: inherit
   - Mikoshiba Mikoto: high school boy, red hair, red eyes, flustered blush when embarrassed
   - Kashima Yuu: tall girl with short dark hair, princely handsome look, girls' uniform
   - Hori Masayuki: high school boy, brown hair, shorter than Kashima, irritated look
-  - Seo Yukari: girl with long hair, carefree smug expression
+  - Seo Yuzuki: girl with long hair, carefree smug expression
   - Wakamatsu Hirotaka: first-year basketball boy, short hair, tired polite look
   확신이 없는 세부(머리색 등)는 "verify against reference"라고 표시한다.
 - 컷 프롬프트에는 해당 인물의 시트 핵심 키워드를 그대로 복사해 반복한다(일관성 확보).

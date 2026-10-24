@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>퇴마 의뢰 - 4컷 식자 미리보기</title>
+<style>
+  body { margin: 0; padding: 24px; background: #ddd; font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif; color: #111; }
+  .page { width: 640px; margin: 0 auto; background: #fff; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+  h1 { text-align: center; font-size: 28px; margin: 4px 0 16px; letter-spacing: 4px; }
+  .cut { margin: 0 0 14px; }
+  .cut svg { display: block; width: 600px; height: 450px; margin: 0 auto; }
+  .bg { width: 600px; margin: 3px auto 0; font-size: 12px; color: #555; }
+  .memo { width: 600px; margin: 20px auto 0; font-size: 12.5px; line-height: 1.6; border-top: 1px solid #999; padding-top: 10px; }
+  .memo h2 { font-size: 14px; margin: 0 0 6px; }
+  .memo ul { margin: 0; padding-left: 18px; }
+
+  .frame { fill: none; stroke: #000; stroke-width: 3; }
+  .num rect { fill: #000; }
+  .num text { fill: #fff; font-size: 14px; font-weight: bold; }
+  .head { fill: #f4f4f4; stroke: #333; stroke-width: 2; }
+  .body { fill: #e4e4e4; stroke: #333; stroke-width: 1.5; }
+  .tag rect { fill: #333; }
+  .tag text { fill: #fff; font-size: 11px; font-weight: bold; }
+  .expr { fill: #b03030; font-size: 11px; }
+  .prop { fill: #fbfbf0; stroke: #555; stroke-width: 1.5; }
+  .proptx { font-size: 11px; fill: #333; }
+  .bgline { stroke: #bbb; stroke-width: 1.5; fill: none; }
+  .bl { fill: #fff; stroke: #111; stroke-width: 2; }
+  .bl.loud { stroke-width: 3.5; }
+  .bl.shaky { stroke-width: 1.2; }
+  .blf { fill: #fff; stroke: none; }
+  .tx { font-size: 15px; fill: #111; text-anchor: middle; }
+  .hand { font-family: "Nanum Pen Script", "Nanum Pen", "Comic Sans MS", cursive; font-size: 24px; fill: #1a2a6a; text-anchor: middle; }
+  .handbox { fill: none; stroke: #1a2a6a; stroke-width: 1.5; stroke-dasharray: 6 4; }
+  .illu { fill: #fff; stroke: #555; stroke-width: 1.8; stroke-dasharray: 5 4; }
+  .illutx { font-size: 10px; fill: #444; text-anchor: middle; }
+</style>
+</head>
+<body>
+<div class="page">
+<h1>퇴마 의뢰</h1>
+
+<!-- 공용 말풍선 형태 -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <polygon id="spk" vector-effect="non-scaling-stroke" points="1,0 .792,.212 .866,.5 .58,.58 .5,.866 .212,.792 0,1 -.212,.792 -.5,.866 -.58,.58 -.866,.5 -.792,.212 -1,0 -.792,-.212 -.866,-.5 -.58,-.58 -.5,-.866 -.212,-.792 0,-1 .212,-.792 .5,-.866 .58,-.58 .866,-.5 .792,-.212"/>
+    <polygon id="wob" vector-effect="non-scaling-stroke" points="1,0 .898,.241 .866,.5 .658,.658 .5,.866 .241,.898 0,1 -.241,.898 -.5,.866 -.658,.658 -.866,.5 -.898,.241 -1,0 -.898,-.241 -.866,-.5 -.658,-.658 -.5,-.866 -.241,-.898 0,-1 .241,-.898 .5,-.866 .658,-.658 .866,-.5 .898,-.241"/>
+  </defs>
+</svg>
+
+<!-- ===================== 1컷 ===================== -->
+<div class="cut">
+<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#fff"/>
+  <!-- 배경: 골대 일부, 공 -->
+  <rect x="548" y="165" width="40" height="28" class="bgline"/>
+  <line x1="556" y1="198" x2="582" y2="198" class="bgline"/>
+  <circle cx="90" cy="415" r="11" class="bgline"/>
+  <circle cx="555" cy="410" r="10" class="bgline"/>
+
+  <!-- 벤치·소품 -->
+  <rect x="60" y="365" width="480" height="14" fill="#ccc" stroke="#888"/>
+  <rect x="255" y="318" width="72" height="47" class="prop" stroke-width="2.5"/>
+  <text x="291" y="347" class="proptx" text-anchor="middle" font-weight="bold" font-size="13">굵은 소금</text>
+  <rect x="336" y="335" width="13" height="28" class="prop"/>
+  <rect x="352" y="338" width="13" height="26" class="prop"/>
+  <rect x="368" y="336" width="13" height="27" class="prop"/>
+  <text x="358" y="330" class="proptx" text-anchor="middle" font-size="10">부적</text>
+
+  <!-- 와카마츠 (좌) -->
+  <rect x="135" y="245" width="70" height="120" rx="10" class="body"/>
+  <line x1="200" y1="300" x2="255" y2="335" stroke="#333" stroke-width="3"/>
+  <line x1="200" y1="315" x2="336" y2="350" stroke="#333" stroke-width="3"/>
+  <circle cx="170" cy="215" r="30" class="head"/>
+  <g class="tag"><rect x="141" y="272" width="58" height="18" rx="3"/><text x="170" y="285" text-anchor="middle">와카마츠</text></g>
+  <text x="18" y="282" class="expr">퀭함·다크서클</text>
+  <text x="18" y="296" class="expr">세로 음영선</text>
+  <text x="18" y="310" class="expr">숙여서 털어놓음</text>
+
+  <!-- 노자키 (우) -->
+  <rect x="395" y="245" width="70" height="120" rx="10" class="body"/>
+  <circle cx="430" cy="215" r="30" class="head"/>
+  <g class="tag"><rect x="404" y="272" width="52" height="18" rx="3"/><text x="430" y="285" text-anchor="middle">노자키</text></g>
+  <text x="474" y="282" class="expr">무표정</text>
+  <text x="474" y="296" class="expr">등 펴고 앉음</text>
+  <text x="474" y="310" class="expr">물건 내려다봄</text>
+
+  <!-- 말풍선 1 (좌상) -->
+  <ellipse cx="105" cy="78" rx="92" ry="58" class="bl"/>
+  <polygon points="88,128 124,126 160,183" class="bl"/>
+  <ellipse cx="105" cy="78" rx="90" ry="56" class="blf"/>
+  <text class="tx"><tspan x="105" y="63">선배, 저</tspan><tspan x="105" y="83">악령에</tspan><tspan x="105" y="103">씌었나 봐요</tspan></text>
+
+  <!-- 말풍선 2 (중상, 오른쪽 끝 x=330 = 가로 55%) -->
+  <ellipse cx="268" cy="100" rx="62" ry="52" class="bl"/>
+  <polygon points="222,138 250,147 190,188" class="bl"/>
+  <ellipse cx="268" cy="100" rx="60" ry="50" class="blf"/>
+  <text class="tx" font-size="14"><tspan x="268" y="87">빵 심부름</tspan><tspan x="268" y="105">시키고, 떼도</tspan><tspan x="268" y="123">또 붙어요</tspan></text>
+
+  <!-- 점 꼬리: 말풍선 2 -> 삽화 -->
+  <circle cx="342" cy="94" r="3.5" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <circle cx="362" cy="89" r="4.5" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <circle cx="386" cy="84" r="5.5" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <circle cx="414" cy="80" r="6.5" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <circle cx="440" cy="78" r="7" fill="#fff" stroke="#111" stroke-width="1.5"/>
+
+  <!-- 작은 삽화 (우상 모서리, 점선 원) -->
+  <circle cx="522" cy="78" r="62" class="illu"/>
+  <text class="illutx" x="522" y="44" font-weight="bold">[작은 삽화]</text>
+  <text class="illutx" x="522" y="64" font-size="13" font-weight="bold" fill="#222">세오 머리 유령</text>
+  <text class="illutx" x="522" y="82">혀 내밀고 공 낚아챔</text>
+  <text class="illutx" x="522" y="98">하반신 연기, 아래에</text>
+  <text class="illutx" x="522" y="112">SD 와카마츠 손 뻗음</text>
+
+  <rect x="1.5" y="1.5" width="597" height="447" class="frame"/>
+  <g class="num"><rect x="0" y="0" width="24" height="22"/><text x="12" y="16" text-anchor="middle">1</text></g>
+</svg>
+<div class="bg">배경: 연습이 끝난 체육관 구석 (후경 골대 일부, 굴러다니는 공), 두 사람 사이 벤치에 굵은 소금·부적</div>
+</div>
+
+<!-- ===================== 2컷 ===================== -->
+<div class="cut">
+<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#fff"/>
+  <!-- 반짝이·꽃 톤 (좌~중만) -->
+  <rect x="0" y="0" width="320" height="450" fill="#fff1f6"/>
+  <g stroke="#e79ab8" stroke-width="1.5">
+    <line x1="40" y1="190" x2="40" y2="210"/><line x1="30" y1="200" x2="50" y2="200"/>
+    <line x1="250" y1="170" x2="250" y2="190"/><line x1="240" y1="180" x2="260" y2="180"/>
+    <line x1="270" y1="300" x2="270" y2="316"/><line x1="262" y1="308" x2="278" y2="308"/>
+    <line x1="60" y1="380" x2="60" y2="396"/><line x1="52" y1="388" x2="68" y2="388"/>
+  </g>
+  <circle cx="245" cy="380" r="9" fill="none" stroke="#e79ab8"/>
+  <circle cx="90" cy="160" r="7" fill="none" stroke="#e79ab8"/>
+  <text x="160" y="440" class="proptx" text-anchor="middle" fill="#c06" font-size="10">(반짝이·꽃 톤)</text>
+  <line x1="320" y1="430" x2="600" y2="430" class="bgline"/>
+
+  <!-- 와카마츠 (좌) -->
+  <rect x="130" y="290" width="80" height="160" rx="12" class="body"/>
+  <circle cx="170" cy="255" r="35" class="head"/>
+  <rect x="148" y="370" width="54" height="40" rx="5" fill="#444" stroke="#111"/>
+  <text x="175" y="394" class="proptx" text-anchor="middle" fill="#fff">녹음기</text>
+  <path d="M150 372 q-20 -20 -8 -40 M200 372 q20 -20 8 -40" fill="none" stroke="#444" stroke-width="1.5"/>
+  <text x="120" y="345" class="proptx" text-anchor="end" font-size="10">이어폰</text>
+  <g class="tag"><rect x="141" y="315" width="58" height="18" rx="3"/><text x="170" y="328" text-anchor="middle">와카마츠</text></g>
+  <text x="14" y="280" class="expr">눈 하이라이트</text>
+  <text x="14" y="294" class="expr">볼 홍조</text>
+  <text x="14" y="308" class="expr">두 손으로 받쳐 듦</text>
+
+  <!-- 노자키 (우) -->
+  <rect x="390" y="290" width="80" height="160" rx="12" class="body"/>
+  <circle cx="430" cy="255" r="35" class="head"/>
+  <path d="M474 228 q-6 10 0 14 q6 -4 0 -14z" fill="#9cd3f0" stroke="#3a8cc0"/>
+  <g class="tag"><rect x="404" y="315" width="52" height="18" rx="3"/><text x="430" y="328" text-anchor="middle">노자키</text></g>
+  <text x="478" y="368" class="expr">무표정</text>
+  <text x="478" y="382" class="expr">관자놀이 땀 1</text>
+  <text x="478" y="396" class="expr">시선=녹음기</text>
+
+  <!-- 말풍선 1 (좌상) -->
+  <ellipse cx="100" cy="72" rx="88" ry="60" class="bl"/>
+  <polygon points="92,128 128,124 162,212" class="bl"/>
+  <ellipse cx="100" cy="72" rx="86" ry="58" class="blf"/>
+  <text class="tx"><tspan x="100" y="57">로렐라이 님</tspan><tspan x="100" y="77">노래만 들으면</tspan><tspan x="100" y="97">푹 자요</tspan></text>
+
+  <!-- 말풍선 2 (중상~우상) -->
+  <ellipse cx="425" cy="78" rx="128" ry="48" class="bl"/>
+  <polygon points="318,104 346,118 208,222" class="bl"/>
+  <ellipse cx="425" cy="78" rx="126" ry="46" class="blf"/>
+  <text class="tx" font-size="18" x="425" y="84">그분은 제 퇴마사예요</text>
+
+  <rect x="1.5" y="1.5" width="597" height="447" class="frame"/>
+  <g class="num"><rect x="0" y="0" width="24" height="22"/><text x="12" y="16" text-anchor="middle">2</text></g>
+</svg>
+<div class="bg">배경: 같은 체육관. 와카마츠 쪽(좌~중)만 반짝이·꽃 톤, 노자키 쪽(우)은 평범한 체육관</div>
+</div>
+
+<!-- ===================== 3컷 ===================== -->
+<div class="cut">
+<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#fff"/>
+  <!-- 약한 집중선 (와카마츠 쪽) -->
+  <g stroke="#ccc" stroke-width="1.2">
+    <line x1="4" y1="150" x2="50" y2="165"/>
+    <line x1="4" y1="270" x2="50" y2="258"/>
+    <line x1="6" y1="380" x2="55" y2="340"/>
+    <line x1="210" y1="440" x2="170" y2="400"/>
+  </g>
+
+  <!-- 와카마츠 (좌, 일어섬) -->
+  <rect x="70" y="128" width="80" height="300" rx="12" class="body"/>
+  <circle cx="110" cy="90" r="38" class="head"/>
+  <rect x="152" y="192" width="44" height="32" class="prop" stroke-width="2"/>
+  <text x="174" y="212" class="proptx" text-anchor="middle" font-size="10">소금</text>
+  <rect x="44" y="198" width="14" height="28" class="prop"/>
+  <text x="51" y="240" class="proptx" text-anchor="middle" font-size="10">부적</text>
+  <g class="tag"><rect x="81" y="262" width="58" height="18" rx="3"/><text x="110" y="275" text-anchor="middle">와카마츠</text></g>
+  <text x="160" y="262" class="expr">결의 눈썹·입 꽉</text>
+  <text x="160" y="276" class="expr">눈에 불꽃·주먹</text>
+
+  <!-- 노자키 (우, 앉음) -->
+  <rect x="415" y="222" width="70" height="120" rx="10" class="body"/>
+  <circle cx="450" cy="190" r="32" class="head"/>
+  <g class="tag"><rect x="424" y="244" width="52" height="18" rx="3"/><text x="450" y="257" text-anchor="middle">노자키</text></g>
+  <text x="300" y="186" class="expr">무표정·고개 숙임</text>
+  <text x="300" y="200" class="expr">수첩에 적음(땀X)</text>
+
+  <!-- 수첩 (하단 우) -->
+  <polygon points="330,300 585,290 590,432 325,432" fill="#fffbe0" stroke="#777" stroke-width="1.5"/>
+  <line x1="458" y1="295" x2="458" y2="432" stroke="#bbb"/>
+  <line x1="420" y1="300" x2="455" y2="330" stroke="#333" stroke-width="3"/>
+  <rect x="360" y="335" width="210" height="80" class="handbox"/>
+  <text class="hand"><tspan x="465" y="368">악령=퇴마사.</tspan><tspan x="465" y="401">본인만 모름</tspan></text>
+
+  <!-- 말풍선 (톱니, 중상) : 왼쪽 끝 x=157 > 와카마츠 머리 오른쪽 148 -->
+  <use href="#spk" class="bl loud" transform="translate(305 58) scale(148 50)"/>
+  <polygon points="184,62 194,84 150,110" class="bl"/>
+  <use href="#spk" class="blf" transform="translate(305 58) scale(145 47)"/>
+  <text class="tx" font-size="17" font-weight="bold"><tspan x="305" y="52">합창부 가서 직접</tspan><tspan x="305" y="74">퇴치 부탁할게요!</tspan></text>
+
+  <rect x="1.5" y="1.5" width="597" height="447" class="frame"/>
+  <g class="num"><rect x="0" y="0" width="24" height="22"/><text x="12" y="16" text-anchor="middle">3</text></g>
+</svg>
+<div class="bg">배경: 같은 체육관 벤치. 약한 집중선(중심 와카마츠), 노자키 무릎 위 수첩을 크게 펼침</div>
+</div>
+
+<!-- ===================== 4컷 ===================== -->
+<div class="cut">
+<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#fff"/>
+  <!-- 열린 체육관 문 (좌측 후경) -->
+  <rect x="20" y="70" width="95" height="340" fill="#f2f2f2" stroke="#aaa"/>
+  <polygon points="115,70 160,92 160,398 115,410" fill="#e8e8e8" stroke="#999"/>
+  <g stroke="#999" stroke-width="1.2"><line x1="166" y1="120" x2="178" y2="114"/><line x1="166" y1="150" x2="180" y2="150"/><line x1="166" y1="180" x2="178" y2="186"/></g>
+  <text x="67" y="400" class="proptx" text-anchor="middle" font-size="10" fill="#888">체육관 문</text>
+  <rect x="236" y="418" width="12" height="24" class="prop" transform="rotate(60 242 430)"/>
+
+  <!-- 세오 (좌, 공중 점프) -->
+  <polygon points="130,158 150,146 226,194 208,214" class="body"/>
+  <line x1="215" y1="205" x2="252" y2="238" stroke="#333" stroke-width="5"/>
+  <line x1="252" y1="238" x2="228" y2="258" stroke="#333" stroke-width="5"/>
+  <line x1="205" y1="212" x2="196" y2="245" stroke="#333" stroke-width="5"/>
+  <line x1="196" y1="245" x2="166" y2="254" stroke="#333" stroke-width="5"/>
+  <line x1="190" y1="176" x2="282" y2="112" stroke="#333" stroke-width="4"/>
+  <rect x="150" y="184" width="34" height="22" class="prop"/>
+  <text x="167" y="199" class="proptx" text-anchor="middle" font-size="10">빵</text>
+  <circle cx="120" cy="135" r="30" class="head"/>
+  <g class="tag"><rect x="36" y="168" width="40" height="18" rx="3"/><text x="56" y="181" text-anchor="middle">세오</text></g>
+  <text x="26" y="204" class="expr">해맑게 웃음</text>
+  <text x="26" y="218" class="expr">(이/윙크)</text>
+  <text x="26" y="232" class="expr">점프 자세</text>
+
+  <!-- 소금 봉지(거꾸로) + 낙하 띠 -->
+  <rect x="274" y="84" width="44" height="30" class="prop" stroke-width="2"/>
+  <text x="296" y="103" class="proptx" text-anchor="middle" font-size="10">소금(↓)</text>
+  <g stroke="#999" stroke-width="1" stroke-dasharray="3 4">
+    <line x1="284" y1="116" x2="282" y2="176"/><line x1="296" y1="116" x2="296" y2="176"/><line x1="308" y1="116" x2="312" y2="176"/>
+  </g>
+  <g fill="#999">
+    <circle cx="276" cy="140" r="1.5"/><circle cx="290" cy="130" r="1.5"/><circle cx="302" cy="150" r="1.5"/><circle cx="318" cy="135" r="1.5"/><circle cx="288" cy="162" r="1.5"/><circle cx="324" cy="160" r="1.5"/>
+  </g>
+
+  <!-- 와카마츠 (중, SD) -->
+  <rect x="285" y="222" width="30" height="62" rx="6" class="body"/>
+  <line x1="292" y1="284" x2="290" y2="318" stroke="#333" stroke-width="3"/>
+  <line x1="308" y1="284" x2="310" y2="318" stroke="#333" stroke-width="3"/>
+  <circle cx="300" cy="200" r="22" class="head" fill="#fafafa"/>
+  <ellipse cx="300" cy="180" rx="20" ry="7" fill="#fff" stroke="#999"/>
+  <g stroke="#666" stroke-width="1.2"><line x1="266" y1="196" x2="272" y2="204"/><line x1="264" y1="210" x2="272" y2="212"/><line x1="334" y1="196" x2="328" y2="204"/><line x1="336" y1="210" x2="328" y2="212"/></g>
+  <g class="tag"><rect x="262" y="325" width="76" height="18" rx="3"/><text x="300" y="338" text-anchor="middle">와카마츠(SD)</text></g>
+  <text x="262" y="357" class="expr">흰자 눈·떨림선</text>
+  <text x="262" y="371" class="expr">하얗게 바램</text>
+
+  <!-- 노자키 (우, 앉음) -->
+  <rect x="448" y="200" width="64" height="130" rx="10" class="body"/>
+  <circle cx="480" cy="168" r="32" class="head"/>
+  <path d="M452 250 L405 300 L395 330" fill="none" stroke="#333" stroke-width="5"/>
+  <g class="tag"><rect x="454" y="214" width="52" height="18" rx="3"/><text x="480" y="227" text-anchor="middle">노자키</text></g>
+  <text x="518" y="250" class="expr">무표정 그대로</text>
+  <text x="518" y="264" class="expr">한 줄 더 적음</text>
+
+  <!-- 수첩 (하단 우) + 메모 캡션 (3컷과 같은 위치·크기) -->
+  <polygon points="330,318 585,310 590,442 325,442" fill="#fffbe0" stroke="#777" stroke-width="1.5"/>
+  <line x1="458" y1="314" x2="458" y2="442" stroke="#bbb"/>
+  <rect x="360" y="335" width="210" height="80" class="handbox"/>
+  <text class="hand" x="465" y="384">의뢰는 접수됨</text>
+
+  <!-- 말풍선 1: 세오 (굵은 톱니, 좌상 모서리) -->
+  <use href="#spk" class="bl loud" transform="translate(100 46) scale(92 40)"/>
+  <polygon points="118,76 142,72 138,108" class="bl loud"/>
+  <use href="#spk" class="blf" transform="translate(100 46) scale(88 36)"/>
+  <text class="tx" font-size="20" font-weight="900" x="100" y="53">악령 퇴치!</text>
+
+  <!-- 말풍선 2: 와카마츠 (떨리는 테두리, 작은 글자, 꼬리 생략) : 몸통 왼쪽 아래로 이동 -->
+  <use href="#wob" class="bl shaky" transform="translate(200 300) scale(70 28)"/>
+  <text class="tx" font-size="12"><tspan x="200" y="296">로렐라이 님…</tspan><tspan x="200" y="312">살려 줘요</tspan></text>
+
+  <rect x="1.5" y="1.5" width="597" height="447" class="frame"/>
+  <g class="num"><rect x="0" y="0" width="24" height="22"/><text x="12" y="16" text-anchor="middle">4</text></g>
+</svg>
+<div class="bg">배경: 줌아웃 풀샷. 좌측 후경 체육관 문이 벌컥 열림(효과선만, 의성어 없음), 소금은 중앙 낙하 띠 안에만, 바닥에 부적 1장</div>
+</div>
+
+<div class="memo">
+  <h2>식자 메모</h2>
+  <ul>
+    <li><b>1컷 간격 (편집 판정 5 반영):</b> 둘째 말풍선의 오른쪽 끝을 칸 가로 55%(x=330) 안에서 멈추고, 작은 삽화(점선 원)는 우상 모서리(오른쪽 끝 x=584)에 붙였다. 둘 사이 약 128px는 점 꼬리만 지나간다.</li>
+    <li><b>4컷 와카마츠 말풍선 (편집 판정 6 확인·반영):</b> 지정 위치(칸 위 55~68%, 몸통 오른쪽, x 약 318~442)에 두면 노자키가 수첩을 든 팔(x 약 395~452, y 약 250~330)과 겹친다. 그래서 와카마츠 몸통 왼쪽 아래(x 130~270, y 272~328, 소금 띠 밖)로 옮기고 꼬리는 뺐다. 떨리는 테두리와 작은 글자는 그대로 두었다.</li>
+    <li><b>머리 가림 확인:</b> 모든 말풍선과 꼬리 끝이 인물 머리 도형 밖에 있다. 머리를 가려서 옮긴 말풍선은 없다. (3컷 꼬리 끝은 와카마츠 머리 안으로 들어가지 않게 (150,110)에 맞췄다.)</li>
+    <li><b>수첩 메모:</b> 3컷 "악령=퇴마사. 본인만 모름"과 4컷 "의뢰는 접수됨"은 말풍선이 아니라 점선 사각 손글씨 캡션이다. 두 칸 모두 같은 위치(x 360~570, y 335~415)에 같은 글자 크기(24px)로 두었고, 각 칸에서 가장 큰 글자다.</li>
+    <li><b>1컷 우상 삽화:</b> 세오 머리를 한 유령을 그림 대신 점선 원 안의 라벨로 표시했고, 둘째 말풍선과 작은 점 꼬리로 이었다.</li>
+    <li><b>노자키:</b> 안경을 쓰지 않는다. 안경은 어느 칸에도 그리지 않았다.</li>
+    <li>대사 문구는 07 대사 배치를 그대로 옮겼다. 편집 판정 1~3번(4컷 메모 문구, 1컷 "떼도" 문구, 글자 수 표기)은 이번 반영 대상이 아니어서 적용하지 않았다. 참고로 "의뢰는 접수됨"은 공백을 넣어 7자다.</li>
+  </ul>
+</div>
+</div>
+</body>
+</html>
