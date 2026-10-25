@@ -2,23 +2,27 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>생령(生靈) 퇴치 대작전 - 4컷 미리보기</title>
+<title>봉인당한 건 누구 - 4컷 미리보기</title>
 <style>
   body { margin: 0; padding: 24px 0 48px; background: #f2f2f2; font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; color: #222; }
   .wrap { width: 600px; margin: 0 auto; }
   h1 { text-align: center; font-size: 26px; margin: 0 0 16px; }
-  svg.panel { display: block; width: 600px; height: 400px; background: #fff; margin: 0 0 14px; }
+  svg.panel { display: block; width: 600px; height: 420px; background: #fff; margin: 0 0 14px; }
   .head { fill: #fff; stroke: #333; stroke-width: 2; }
   .body { fill: #e4e4e4; stroke: #333; stroke-width: 2; }
-  .bg { fill: #f4f4f4; stroke: #999; stroke-width: 1; }
+  .limb { fill: none; stroke: #333; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .hand { fill: #fff; stroke: #333; stroke-width: 2; }
+  .table { fill: #f4f0e6; stroke: #999; stroke-width: 1; }
   .prop { font-size: 9px; fill: #777; }
   .name { font-size: 11px; font-weight: bold; fill: #000; }
-  .expr { font-size: 11px; fill: #555; }
+  .expr { font-size: 11px; font-weight: normal; fill: #555; }
   .caption { font-size: 11px; fill: #333; }
   .bal { fill: #fff; stroke: #000; stroke-width: 2; }
   .balfill { fill: #fff; stroke: none; }
   .btxt { font-size: 15px; fill: #000; text-anchor: middle; }
   .sfx { font-weight: bold; fill: #000; }
+  .ofuda { fill: #fbf6e4; stroke: #a33; stroke-width: 1; }
+  .ofudaInk { stroke: #c22; stroke-width: 1.5; }
   .num { fill: #000; }
   .numtxt { fill: #fff; font-size: 14px; font-weight: bold; text-anchor: middle; }
   .frame { fill: none; stroke: #000; stroke-width: 4; }
@@ -29,218 +33,352 @@
 </head>
 <body>
 <div class="wrap">
-<h1>생령(生靈) 퇴치 대작전</h1>
+<h1>봉인당한 건 누구</h1>
 
 <!-- ===================== 1컷 ===================== -->
-<svg class="panel" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-  <!-- 반짝이 톤 (치요 주변) -->
-  <g fill="#f3c94a" opacity="0.7">
-    <text x="440" y="215" font-size="14">✦</text>
-    <text x="538" y="240" font-size="12">✦</text>
-    <text x="545" y="190" font-size="10">✦</text>
-    <text x="430" y="275" font-size="10">✦</text>
-  </g>
-  <!-- 미코시바 (중, 후경) -->
-  <circle class="head" cx="300" cy="195" r="22"/>
-  <rect class="body" x="272" y="219" width="56" height="55" rx="14"/>
-  <!-- 책상 -->
-  <rect class="bg" x="150" y="268" width="300" height="22"/>
-  <ellipse cx="238" cy="268" rx="20" ry="5" fill="#fff" stroke="#666"/>
-  <text class="prop" x="226" y="262">소금</text>
-  <rect x="256" y="258" width="22" height="10" fill="#f6efd0" stroke="#999"/>
-  <text class="prop" x="252" y="252">부적</text>
-  <text class="prop" x="380" y="284">원고·잉크·톤</text>
-  <text class="name" x="300" y="308" text-anchor="middle">[미코시바]<tspan class="expr"> 자랑스러움·부적 배열</tspan></text>
+<svg class="panel" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+  <!-- 미코시바 (중, 후경, 상체 숙임) -->
+  <circle class="head" cx="300" cy="190" r="22"/>
+  <rect class="body" x="270" y="212" width="60" height="90" rx="14"/>
+  <!-- 좌탁 -->
+  <rect class="table" x="150" y="300" width="320" height="26"/>
+  <!-- 부적 다발 (미코시바 앞, 중앙 안쪽) -->
+  <rect class="ofuda" x="288" y="296" width="24" height="12"/>
+  <rect class="ofuda" x="291" y="293" width="24" height="12"/>
+  <text class="prop" x="292" y="320">부적 다발</text>
+  <!-- 낱장 부적 부채꼴 + 소금 접시 (중좌) -->
+  <rect class="ofuda" x="196" y="306" width="8" height="16" transform="rotate(-25 200 314)"/>
+  <rect class="ofuda" x="204" y="306" width="8" height="16"/>
+  <rect class="ofuda" x="212" y="306" width="8" height="16" transform="rotate(25 216 314)"/>
+  <ellipse cx="248" cy="312" rx="16" ry="5" fill="#fff" stroke="#666"/>
+  <ellipse cx="248" cy="309" rx="9" ry="4" fill="#fff" stroke="#bbb"/>
+  <text class="prop" x="238" y="323">소금</text>
+  <!-- 치요 앞 원고 (머리카락 반만 칠함) -->
+  <rect x="378" y="302" width="56" height="20" fill="#fff" stroke="#888"/>
+  <circle cx="406" cy="314" r="6" fill="#fff" stroke="#666"/>
+  <path d="M400 314 A6 6 0 0 1 406 308 L406 314 Z" fill="#111"/>
+  <path d="M406 308 A6 6 0 0 1 412 314 L406 314 Z" fill="#fff" stroke="#666" stroke-width="0.8"/>
+  <text class="prop" x="440" y="318">원고(반만 칠함)</text>
+  <!-- 먹물 접시 -->
+  <ellipse cx="455" cy="306" rx="9" ry="3.5" fill="#333"/>
+
   <!-- 노자키 (좌, 전경) -->
-  <circle class="head" cx="110" cy="230" r="30"/>
-  <rect class="body" x="75" y="262" width="70" height="80" rx="18"/>
-  <text class="name" x="110" y="364" text-anchor="middle">[노자키]<tspan class="expr"> 무표정·검지 세움</tspan></text>
+  <circle class="head" cx="110" cy="205" r="28"/>
+  <rect class="body" x="78" y="236" width="64" height="94" rx="16"/>
+  <!-- 콘티 종이 (칸 폭 1/4, 독자 쪽으로) -->
+  <rect x="132" y="228" width="150" height="70" fill="#fff" stroke="#333" stroke-width="2" transform="rotate(-3 207 263)"/>
+  <g transform="rotate(-3 207 263)">
+    <text x="207" y="252" font-size="15" font-weight="bold" text-anchor="middle" fill="#111" font-style="italic">생령 = 그리워하는 쪽</text>
+    <!-- 작은 사람 낙서 -->
+    <circle cx="160" cy="268" r="5" fill="none" stroke="#333"/>
+    <line x1="160" y1="273" x2="160" y2="285" stroke="#333"/>
+    <line x1="154" y1="278" x2="166" y2="278" stroke="#333"/>
+    <!-- 화살표 -->
+    <line x1="174" y1="277" x2="232" y2="277" stroke="#333" stroke-width="1.5"/>
+    <path d="M232 272 L240 277 L232 282 Z" fill="#333"/>
+    <!-- 꼬리 달린 혼 낙서 -->
+    <path d="M252 268 q10 -8 18 2 q4 10 -6 14 q-6 4 -14 10 q3 -8 -1 -12 q-4 -8 3 -14 Z" fill="#fff" stroke="#333"/>
+  </g>
+  <circle class="hand" cx="136" cy="250" r="7"/>
+  <circle class="hand" cx="136" cy="280" r="7"/>
+
   <!-- 치요 (우, 전경) -->
-  <circle class="head" cx="490" cy="230" r="30"/>
-  <rect class="body" x="455" y="262" width="70" height="80" rx="18"/>
-  <text class="prop" x="400" y="300">베타(먹칠)</text>
-  <text class="name" x="490" y="364" text-anchor="middle">[치요]<tspan class="expr"> 별 눈·홍조·붓 멈춤</tspan></text>
+  <circle class="head" cx="490" cy="205" r="28"/>
+  <rect class="body" x="458" y="235" width="66" height="90" rx="16"/>
+  <!-- 붓: 손에서 원고로 -->
+  <circle class="hand" cx="462" cy="280" r="6"/>
+  <line x1="458" y1="284" x2="414" y2="309" stroke="#5a3b1a" stroke-width="2.5"/>
 
-  <!-- 말풍선 1: 노자키, 타원, 좌상 -->
-  <path class="bal" d="M105 104 L112 192 L130 106 Z"/>
-  <ellipse class="bal" cx="135" cy="70" rx="110" ry="40"/>
-  <path class="balfill" d="M105 104 L112 192 L130 106 Z"/>
-  <text class="btxt" x="135" y="65">다음 화는<tspan x="135" dy="22">퇴마 로맨스다.</tspan></text>
+  <!-- 이름표 -->
+  <text class="name" x="10" y="352">[노자키]<tspan class="expr"> 무표정·콘티 종이 제시</tspan></text>
+  <text class="name" x="300" y="372" text-anchor="middle">[미코시바]<tspan class="expr"> 살짝 뿌듯(반눈·입꼬리↑)·부적·소금 배열</tspan></text>
+  <text class="name" x="595" y="352" text-anchor="end">[치요]<tspan class="expr"> 평소 눈+작은 하이라이트·홍조 없음·붓 멈춤</tspan></text>
 
-  <!-- 말풍선 2: 치요 속마음, 구름, 우상 -->
-  <g class="bal">
-    <circle cx="455" cy="62" r="22"/><circle cx="485" cy="50" r="24"/><circle cx="520" cy="52" r="24"/>
-    <circle cx="548" cy="68" r="20"/><circle cx="528" cy="88" r="20"/><circle cx="494" cy="92" r="22"/>
-    <circle cx="462" cy="86" r="20"/>
-  </g>
-  <g class="balfill">
-    <circle cx="455" cy="62" r="22"/><circle cx="485" cy="50" r="24"/><circle cx="520" cy="52" r="24"/>
-    <circle cx="548" cy="68" r="20"/><circle cx="528" cy="88" r="20"/><circle cx="494" cy="92" r="22"/>
-    <circle cx="462" cy="86" r="20"/><ellipse cx="500" cy="70" rx="60" ry="25"/>
-  </g>
-  <circle class="bal" cx="486" cy="124" r="7"/>
-  <circle class="bal" cx="488" cy="145" r="5"/>
-  <circle class="bal" cx="489" cy="163" r="3.5"/>
-  <text class="btxt" x="502" y="66" font-size="13" font-style="italic">퇴마<tspan x="502" dy="18">로맨스…!</tspan></text>
+  <!-- 말풍선 2: 노자키, 타원, 중상 (1번 아래에 깔림) -->
+  <path class="bal" d="M250 106 L140 182 L272 112 Z"/>
+  <ellipse class="bal" cx="335" cy="80" rx="118" ry="38"/>
+  <path class="balfill" d="M250 106 L140 182 L272 112 Z"/>
+  <text class="btxt" x="335" y="75">생령은 그리워하는<tspan x="335" dy="21">쪽에서 나온다.</tspan></text>
 
-  <text class="caption" x="10" y="390">배경: 노자키의 방 / 책상 위 원고·잉크병·스크린톤, 중좌에 부적 다발+소금 접시, 치요 주변 반짝이 톤</text>
+  <!-- 말풍선 1: 노자키, 타원, 좌상 맨 위 -->
+  <path class="bal" d="M100 99 L108 170 L122 101 Z"/>
+  <ellipse class="bal" cx="140" cy="66" rx="108" ry="36"/>
+  <path class="balfill" d="M100 99 L108 170 L122 101 Z"/>
+  <text class="btxt" x="140" y="61">다음 화는<tspan x="140" dy="21">퇴마 로맨스다.</tspan></text>
+
+  <text class="caption" x="10" y="408">배경: 노자키의 방 / 좌탁 위 원고·먹물 접시·펜·스크린톤, 중좌 낱장 부적+소금 접시, 중앙 안쪽 부적 다발</text>
   <rect class="num" x="0" y="0" width="30" height="24"/><text class="numtxt" x="15" y="17">1</text>
-  <rect class="frame" x="2" y="2" width="596" height="396"/>
+  <rect class="frame" x="2" y="2" width="596" height="416"/>
 </svg>
 
 <!-- ===================== 2컷 ===================== -->
-<svg class="panel" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-  <!-- 순정 톤 -->
-  <g fill="#f2a7c3" opacity="0.6">
-    <text x="420" y="80" font-size="16">✿</text>
-    <text x="556" y="70" font-size="14">✿</text>
-    <text x="565" y="200" font-size="16">✿</text>
-    <text x="410" y="240" font-size="12">✦</text>
+<svg class="panel" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+  <!-- 순정 톤 (치요 쪽만) -->
+  <g fill="#f2a7c3" opacity="0.65">
+    <text x="372" y="200" font-size="22">✿</text>
+    <text x="560" y="180" font-size="20">✿</text>
+    <text x="548" y="300" font-size="24">✿</text>
+    <text x="380" y="300" font-size="16">✿</text>
   </g>
-  <!-- 노자키 (좌, 프레임 가장자리 걸침) -->
-  <circle class="head" cx="25" cy="190" r="42"/>
-  <rect class="body" x="-20" y="234" width="90" height="140" rx="25"/>
-  <text class="name" x="8" y="388">[노자키]<tspan class="expr"> 옆얼굴 무표정</tspan></text>
-  <!-- 미코시바 (중, 후경, 작게) -->
-  <circle class="head" cx="290" cy="262" r="20"/>
-  <rect x="272" y="270" width="36" height="14" fill="#f6efd0" stroke="#999"/>
-  <rect class="body" x="266" y="284" width="48" height="50" rx="12"/>
-  <text class="name" x="290" y="352" text-anchor="middle">[미코시바]<tspan class="expr"> 새빨감·김·부적으로 가림</tspan></text>
-  <!-- 치요 (우, 전경, 머리 우상단) -->
-  <circle class="head" cx="500" cy="128" r="46"/>
-  <rect class="body" x="450" y="176" width="100" height="170" rx="25"/>
-  <text class="name" x="500" y="368" text-anchor="middle">[치요]<tspan class="expr"> 짙은 홍조·리본 쥠</tspan></text>
+  <g fill="none" stroke="#f2a7c3" stroke-width="1.5" opacity="0.7">
+    <circle cx="395" cy="250" r="8"/><circle cx="410" cy="232" r="5"/><circle cx="570" cy="240" r="9"/>
+    <circle cx="555" cy="215" r="5"/><circle cx="582" cy="270" r="4"/>
+  </g>
+  <!-- 노자키 (좌, 가장자리 걸침) -->
+  <circle class="head" cx="22" cy="205" r="42"/>
+  <rect class="body" x="-20" y="248" width="92" height="140" rx="25"/>
+  <rect x="60" y="322" width="24" height="30" fill="#fff" stroke="#333" transform="rotate(-8 72 337)"/>
+  <text class="prop" x="88" y="345">콘티 종이 끝</text>
+  <!-- 미코시바 (중, 후경, 작게, 중간 높이보다 아래) -->
+  <g stroke="#999" fill="none" stroke-width="1.5">
+    <path d="M292 248 q-4 -6 0 -12 q4 -6 0 -12"/><path d="M308 248 q-4 -6 0 -12 q4 -6 0 -12"/>
+  </g>
+  <circle cx="300" cy="268" r="18" fill="#f7b3b3" stroke="#333" stroke-width="2"/>
+  <rect class="body" x="280" y="286" width="40" height="46" rx="10"/>
+  <rect class="ofuda" x="280" y="270" width="12" height="20" transform="rotate(-12 286 280)"/>
+  <rect class="ofuda" x="292" y="270" width="12" height="20"/>
+  <rect class="ofuda" x="304" y="270" width="12" height="20" transform="rotate(12 310 280)"/>
+  <!-- 치요 (우, 전경, 얼굴 우측 중간 높이) -->
+  <rect class="body" x="435" y="258" width="90" height="110" rx="24"/>
+  <polyline class="limb" points="445,268 425,225 452,158"/>
+  <polyline class="limb" points="515,268 535,225 508,158"/>
+  <circle cx="480" cy="215" r="44" fill="#fbd3dc" stroke="#333" stroke-width="2"/>
+  <!-- 물방울무늬 리본 -->
+  <ellipse cx="452" cy="150" rx="17" ry="10" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <ellipse cx="508" cy="150" rx="17" ry="10" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <circle cx="480" cy="158" r="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <g fill="#333"><circle cx="446" cy="148" r="2"/><circle cx="458" cy="153" r="2"/><circle cx="502" cy="153" r="2"/><circle cx="514" cy="148" r="2"/></g>
+  <circle class="hand" cx="452" cy="156" r="6"/>
+  <circle class="hand" cx="508" cy="156" r="6"/>
+  <!-- 먹물 접시 + 붓 -->
+  <ellipse cx="560" cy="380" rx="14" ry="4" fill="#333"/>
+  <line x1="548" y1="378" x2="590" y2="368" stroke="#5a3b1a" stroke-width="2"/>
 
-  <!-- 말풍선 1: 치요, 타원, 좌중~중상 -->
-  <path class="bal" d="M205 112 L262 150 L228 112 Z"/>
-  <ellipse class="bal" cx="190" cy="75" rx="105" ry="42"/>
-  <path class="balfill" d="M205 112 L262 150 L228 112 Z"/>
-  <text class="btxt" x="190" y="70">나도 씌어 있는<tspan x="190" dy="22">것 같아…</tspan></text>
+  <!-- 이름표 -->
+  <text class="name" x="10" y="400">[노자키]<tspan class="expr"> 옆얼굴 무표정</tspan></text>
+  <text class="name" x="300" y="352" text-anchor="middle">[미코시바]<tspan class="expr"> 더 새빨감·김·흰자 눈·땀·부적으로 코 아래 가림</tspan></text>
+  <text class="name" x="540" y="395" text-anchor="end">[치요]<tspan class="expr"> 짙은 홍조·촉촉한 눈 치켜뜸·리본 쥠</tspan></text>
 
-  <!-- 말풍선 2: 치요, 타원, 중상 (1번 오른쪽에 살짝 겹침, 조금 낮게) -->
-  <path class="bal" d="M405 125 L452 140 L425 115 Z"/>
-  <ellipse class="bal" cx="345" cy="95" rx="100" ry="42"/>
-  <path class="balfill" d="M405 125 L452 140 L425 115 Z"/>
-  <text class="btxt" x="345" y="90" font-size="14">요즘 계속 노자키 군<tspan x="345" dy="21">생각만 나.</tspan></text>
+  <!-- 말풍선 2: 치요, 타원, 중상 (1번 아래에 깔림) -->
+  <path class="bal" d="M393 110 L432 165 L417 103 Z"/>
+  <ellipse class="bal" cx="330" cy="80" rx="112" ry="38"/>
+  <path class="balfill" d="M393 110 L432 165 L417 103 Z"/>
+  <text class="btxt" x="330" y="75">요즘 노자키 군<tspan x="330" dy="21">생각만 나.</tspan></text>
 
-  <text class="caption" x="10" y="16" dx="28">배경: 생략, 치요 쪽 순정 톤(꽃·반짝이) / 미코시바 손의 부적은 1컷과 동일</text>
+  <!-- 말풍선 1: 치요, 타원, 좌상~중상 -->
+  <path class="bal" d="M190 98 L262 140 L212 95 Z"/>
+  <ellipse class="bal" cx="165" cy="66" rx="100" ry="34"/>
+  <path class="balfill" d="M190 98 L262 140 L212 95 Z"/>
+  <text class="btxt" x="165" y="71">나도 씐 것 같아…</text>
+
+  <text class="caption" x="10" y="414">배경: 생략, 치요 쪽만 순정 톤(꽃·뽀글 효과선) / 미코시바 손 부적은 1컷과 동일 디자인</text>
   <rect class="num" x="0" y="0" width="30" height="24"/><text class="numtxt" x="15" y="17">2</text>
-  <rect class="frame" x="2" y="2" width="596" height="396"/>
+  <rect class="frame" x="2" y="2" width="596" height="416"/>
 </svg>
 
 <!-- ===================== 3컷 ===================== -->
-<svg class="panel" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-  <!-- 약한 집중선 -->
-  <g stroke="#ddd" stroke-width="1">
-    <line x1="300" y1="200" x2="0" y2="120"/><line x1="300" y1="200" x2="600" y2="120"/>
-    <line x1="300" y1="200" x2="0" y2="330"/><line x1="300" y1="200" x2="600" y2="330"/>
+<svg class="panel" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+  <!-- 노자키 쪽: 약한 집중선 -->
+  <g stroke="#e2e2e2" stroke-width="1">
+    <line x1="150" y1="185" x2="0" y2="130"/><line x1="150" y1="185" x2="0" y2="260"/>
+    <line x1="150" y1="185" x2="40" y2="420"/><line x1="150" y1="185" x2="0" y2="30"/>
   </g>
-  <!-- 미코시바 (중, 후경) -->
-  <circle class="head" cx="290" cy="250" r="20"/>
-  <rect class="body" x="266" y="272" width="48" height="45" rx="12"/>
-  <!-- 책상 + 소금 접시 -->
-  <rect class="bg" x="150" y="300" width="330" height="16"/>
-  <ellipse cx="205" cy="300" rx="25" ry="6" fill="#fff" stroke="#666"/>
-  <text class="prop" x="193" y="326">소금(한 줌 덜어짐)</text>
-  <text class="name" x="300" y="343" text-anchor="middle">[미코시바]<tspan class="expr"> 당황·땀·'아...'</tspan></text>
-  <!-- 노자키 (좌, 서 있음) -->
-  <circle class="head" cx="100" cy="92" r="32"/>
-  <rect class="body" x="65" y="126" width="70" height="200" rx="18"/>
-  <line x1="135" y1="160" x2="415" y2="168" stroke="#333" stroke-width="3"/>
-  <line x1="130" y1="200" x2="200" y2="272" stroke="#333" stroke-width="3"/>
-  <text class="name" x="100" y="362" text-anchor="middle">[노자키]<tspan class="expr"> 굳은 무표정·세로 그림자</tspan></text>
-  <!-- 치요 (우, 앉음, 중우로 당김) -->
-  <circle class="head" cx="440" cy="190" r="32"/>
-  <rect x="435" y="160" width="10" height="34" fill="#f6efd0" stroke="#999"/>
-  <rect class="body" x="405" y="224" width="70" height="110" rx="18"/>
-  <text class="name" x="440" y="362" text-anchor="middle">[치요]<tspan class="expr"> 평소 눈 깜빡·땀 하나</tspan></text>
-  <!-- 소금 알갱이 -->
-  <g fill="#bbb">
-    <circle cx="160" cy="245" r="2"/><circle cx="185" cy="238" r="2"/><circle cx="215" cy="250" r="2"/>
-    <circle cx="420" cy="160" r="2"/><circle cx="455" cy="157" r="2"/><circle cx="412" cy="226" r="2"/>
-    <circle cx="470" cy="228" r="2"/>
+  <!-- 치요 쪽: 큰 반짝이와 꽃 -->
+  <g fill="#f3c94a" opacity="0.8">
+    <text x="520" y="170" font-size="30">✦</text>
+    <text x="370" y="160" font-size="22">✦</text>
+    <text x="560" y="250" font-size="22">✦</text>
+    <text x="490" y="300" font-size="18">✦</text>
+  </g>
+  <g fill="#f2a7c3" opacity="0.7">
+    <text x="540" y="210" font-size="28">✿</text>
+    <text x="365" y="250" font-size="24">✿</text>
+    <text x="555" y="300" font-size="20">✿</text>
   </g>
 
-  <!-- 말풍선 1: 노자키, 타원, 중상 맨 위 -->
-  <path class="bal" d="M180 70 L140 96 L200 80 Z"/>
-  <ellipse class="bal" cx="290" cy="55" rx="125" ry="38"/>
-  <path class="balfill" d="M180 70 L140 96 L200 80 Z"/>
-  <text class="btxt" x="290" y="50">내 생령이<tspan x="290" dy="22">사쿠라에게 붙었군.</tspan></text>
+  <!-- 미코시바 (중, 후경, 하단, 좌탁 너머) -->
+  <circle class="head" cx="300" cy="298" r="16"/>
+  <rect class="ofuda" x="286" y="298" width="28" height="13"/>
+  <path d="M320 286 q3 5 0 8 q-3 -3 0 -8 Z" fill="#7fb3e0"/>
+  <!-- 좌탁 -->
+  <rect class="table" x="170" y="318" width="310" height="24"/>
+  <ellipse cx="225" cy="327" rx="16" ry="5" fill="#fff" stroke="#666"/>
+  <path d="M218 326 q7 4 14 0" fill="none" stroke="#999"/>
+  <rect class="ofuda" x="250" y="322" width="8" height="15" transform="rotate(-15 254 330)"/>
+  <rect class="ofuda" x="259" y="322" width="8" height="15" transform="rotate(10 263 330)"/>
+  <rect x="380" y="322" width="34" height="16" fill="#fff" stroke="#888"/>
+  <text class="prop" x="198" y="354">소금(패임)·낱장 1장 줄어듦</text>
+  <text class="prop" x="372" y="354">콘티 종이</text>
 
-  <!-- 효과음: 탁! -->
-  <text class="sfx" x="528" y="190" font-size="28" text-anchor="middle" transform="rotate(-10 528 190)">탁!</text>
-  <!-- 효과음: 촤악 (호 모양) -->
-  <path id="arc3" d="M145 255 Q175 212 232 222" fill="none"/>
-  <text class="sfx" font-size="14"><textPath href="#arc3">촤악</textPath></text>
+  <!-- 노자키 (좌, 일어서서 오른쪽으로 숙임) -->
+  <polygon class="body" points="128,210 182,222 168,300 152,372 90,372 100,290"/>
+  <!-- 안쪽 손: 가슴 높이 소금 주먹 -->
+  <polyline class="limb" points="135,226 150,250 165,262"/>
+  <circle class="hand" cx="166" cy="262" r="9"/>
+  <g fill="#999"><circle cx="164" cy="275" r="1.5"/><circle cx="169" cy="282" r="1.5"/><circle cx="162" cy="289" r="1.5"/></g>
+  <!-- 앞쪽 손: 팔꿈치 굽혀 얼굴 한 뼘 앞, 부적으로 치요 이마 겨눔 -->
+  <polyline class="limb" points="172,224 212,248 232,196"/>
+  <circle class="hand" cx="235" cy="190" r="8"/>
+  <rect class="ofuda" x="243" y="185" width="58" height="11"/>
+  <line class="ofudaInk" x1="250" y1="190.5" x2="292" y2="190.5"/>
+  <text class="prop" x="268" y="180">부적 →</text>
+  <circle class="head" cx="150" cy="185" r="30"/>
+  <g stroke="#555" stroke-width="1"><line x1="134" y1="161" x2="134" y2="172"/><line x1="139" y1="159" x2="139" y2="171"/><line x1="161" y1="159" x2="161" y2="171"/><line x1="166" y1="161" x2="166" y2="172"/></g>
 
-  <!-- 말풍선 2: 치요, 작은 타원, 우하 -->
-  <path class="bal" d="M510 278 L468 224 L522 272 Z"/>
-  <ellipse class="bal" cx="535" cy="290" rx="40" ry="22"/>
-  <path class="balfill" d="M510 278 L468 224 L522 272 Z"/>
-  <text class="btxt" x="535" y="295" font-size="13">에…?</text>
+  <!-- 치요 (우, 앉아서 올려다봄) -->
+  <rect class="body" x="405" y="233" width="70" height="90" rx="18" transform="rotate(-6 440 278)"/>
+  <circle class="hand" cx="428" cy="258" r="8"/>
+  <circle cx="440" cy="205" r="30" fill="#fbd3dc" stroke="#333" stroke-width="2"/>
 
-  <text class="caption" x="10" y="390">배경: 노자키의 방(1컷과 같은 축), 약한 집중선 / 책상 중좌 소금 접시, 공중의 소금 알갱이</text>
+  <!-- 이름표 -->
+  <text class="name" x="10" y="388">[노자키]<tspan class="expr"> 굳은 무표정·이마 세로 그림자</tspan></text>
+  <text class="name" x="300" y="404" text-anchor="middle">[미코시바]<tspan class="expr"> 다발로 얼굴 가림·눈만·땀 1</tspan></text>
+  <text class="name" x="595" y="388" text-anchor="end">[치요]<tspan class="expr"> 짙은 홍조·별 하이라이트·벌린 미소(땀X)</tspan></text>
+
+  <!-- 말풍선 1: 노자키, 타원, 좌상~중상 -->
+  <path class="bal" d="M140 106 L152 124 L165 107 Z"/>
+  <ellipse class="bal" cx="175" cy="68" rx="130" ry="40"/>
+  <path class="balfill" d="M140 106 L152 124 L165 107 Z"/>
+  <text class="btxt" x="175" y="63">사쿠라, 내 생령이군.<tspan x="175" dy="21">떼어 주지.</tspan></text>
+
+  <!-- 말풍선 2: 치요 속마음, 구름, 우상 -->
+  <g class="bal">
+    <circle cx="400" cy="60" r="26"/><circle cx="440" cy="46" r="26"/><circle cx="490" cy="42" r="27"/>
+    <circle cx="535" cy="52" r="26"/><circle cx="552" cy="80" r="22"/><circle cx="520" cy="98" r="22"/>
+    <circle cx="475" cy="102" r="22"/><circle cx="428" cy="98" r="22"/><circle cx="392" cy="85" r="22"/>
+  </g>
+  <g class="balfill">
+    <circle cx="400" cy="60" r="26"/><circle cx="440" cy="46" r="26"/><circle cx="490" cy="42" r="27"/>
+    <circle cx="535" cy="52" r="26"/><circle cx="552" cy="80" r="22"/><circle cx="520" cy="98" r="22"/>
+    <circle cx="475" cy="102" r="22"/><circle cx="428" cy="98" r="22"/><circle cx="392" cy="85" r="22"/>
+    <ellipse cx="470" cy="72" rx="88" ry="32"/>
+  </g>
+  <circle class="bal" cx="452" cy="134" r="6"/>
+  <circle class="bal" cx="447" cy="149" r="4.5"/>
+  <circle class="bal" cx="444" cy="161" r="3"/>
+  <text class="btxt" x="472" y="68" font-size="14" font-style="italic">노자키 군도<tspan x="472" dy="20">내 생각을…?!</tspan></text>
+
+  <text class="caption" x="10" y="414">배경: 1컷과 같은 축·노자키 가슴 높이 / 노자키 쪽 흰 배경+약한 집중선, 치요 쪽 큰 반짝이·꽃</text>
   <rect class="num" x="0" y="0" width="30" height="24"/><text class="numtxt" x="15" y="17">3</text>
-  <rect class="frame" x="2" y="2" width="596" height="396"/>
+  <rect class="frame" x="2" y="2" width="596" height="416"/>
 </svg>
 
 <!-- ===================== 4컷 ===================== -->
-<svg class="panel" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-  <!-- 방 구석 벽선 -->
-  <polyline points="20,20 20,340 600,340" fill="none" stroke="#ccc" stroke-width="2"/>
-  <!-- 노자키 (좌 구석, 작게, 하단) -->
-  <circle class="head" cx="60" cy="300" r="14"/>
-  <rect class="body" x="46" y="315" width="28" height="24" rx="6"/>
-  <!-- 우편 소품 -->
-  <rect x="86" y="312" width="16" height="24" fill="#e66" stroke="#333"/>
-  <rect x="104" y="328" width="14" height="9" fill="#fff" stroke="#666"/>
-  <text class="prop" x="84" y="306">우편함·봉투</text>
-  <text class="name" x="10" y="362">[노자키]<tspan class="expr"> 무표정·쪼그려 원고</tspan></text>
-  <!-- 책상 -->
-  <rect class="bg" x="335" y="268" width="80" height="20"/>
-  <text class="prop" x="340" y="263">부적·원고</text>
-  <!-- 미코시바 (중, 중경) -->
-  <circle class="head" cx="300" cy="205" r="22"/>
-  <rect class="body" x="272" y="229" width="56" height="70" rx="14"/>
-  <ellipse cx="300" cy="245" rx="22" ry="6" fill="#fff" stroke="#666"/>
-  <text class="name" x="300" y="318" text-anchor="middle">[미코시바]<tspan class="expr"> 땀·좌우 번갈아</tspan></text>
-  <!-- 효과음: 홱 홱 -->
-  <g stroke="#555" stroke-width="1.5">
-    <line x1="268" y1="168" x2="280" y2="172"/><line x1="320" y1="172" x2="332" y2="168"/>
+<svg class="panel" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fade4" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d8d8d8"/>
+      <stop offset="0.55" stop-color="#eeeeee"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <!-- 이마 부적 중심 집중선 (칸 전체) -->
+  <g stroke="#cfcfcf" stroke-width="1">
+    <line x1="150" y1="167" x2="0" y2="0"/><line x1="150" y1="167" x2="90" y2="0"/>
+    <line x1="150" y1="167" x2="210" y2="0"/><line x1="150" y1="167" x2="330" y2="0"/>
+    <line x1="150" y1="167" x2="460" y2="0"/><line x1="150" y1="167" x2="600" y2="0"/>
+    <line x1="150" y1="167" x2="600" y2="110"/><line x1="150" y1="167" x2="600" y2="230"/>
+    <line x1="150" y1="167" x2="600" y2="340"/><line x1="150" y1="167" x2="600" y2="420"/>
+    <line x1="150" y1="167" x2="470" y2="420"/><line x1="150" y1="167" x2="340" y2="420"/>
+    <line x1="150" y1="167" x2="220" y2="420"/><line x1="150" y1="167" x2="100" y2="420"/>
+    <line x1="150" y1="167" x2="0" y2="400"/><line x1="150" y1="167" x2="0" y2="300"/>
+    <line x1="150" y1="167" x2="0" y2="90"/>
   </g>
-  <text class="sfx" x="300" y="166" font-size="14" text-anchor="middle">홱 홱</text>
-  <!-- 치요 (우, 전경, 크게, 석화) -->
-  <circle cx="480" cy="210" r="55" fill="#ddd" stroke="#333" stroke-width="2"/>
-  <rect x="474" y="160" width="12" height="40" fill="#f6efd0" stroke="#999"/>
-  <rect x="420" y="267" width="120" height="100" rx="28" fill="#ccc" stroke="#333" stroke-width="2"/>
-  <polyline points="455,180 465,195 458,210" fill="none" stroke="#666"/>
-  <!-- 혼 -->
-  <path d="M510 70 q14 -14 28 0 q8 16 -6 26 q-10 10 -24 20 q6 -14 -2 -22 q-6 -12 4 -24 Z" fill="#fff" stroke="#888"/>
-  <text class="prop" x="545" y="90">혼</text>
-  <text class="name" x="480" y="388" text-anchor="middle">[치요]<tspan class="expr"> 석화·흰자 눈·혼 빠짐</tspan></text>
+  <!-- 치요 쪽: 반짝이 삭제, 흰 바탕 세로 줄 톤 -->
+  <rect x="365" y="126" width="231" height="190" fill="#fff"/>
+  <g stroke="#c8c8c8" stroke-width="1">
+    <line x1="370" y1="126" x2="370" y2="316"/><line x1="382" y1="126" x2="382" y2="316"/>
+    <line x1="394" y1="126" x2="394" y2="316"/><line x1="406" y1="126" x2="406" y2="316"/>
+    <line x1="418" y1="126" x2="418" y2="316"/><line x1="430" y1="126" x2="430" y2="316"/>
+    <line x1="442" y1="126" x2="442" y2="316"/><line x1="454" y1="126" x2="454" y2="316"/>
+    <line x1="466" y1="126" x2="466" y2="316"/><line x1="478" y1="126" x2="478" y2="316"/>
+    <line x1="490" y1="126" x2="490" y2="316"/><line x1="502" y1="126" x2="502" y2="316"/>
+    <line x1="514" y1="126" x2="514" y2="316"/><line x1="526" y1="126" x2="526" y2="316"/>
+    <line x1="538" y1="126" x2="538" y2="316"/><line x1="550" y1="126" x2="550" y2="316"/>
+    <line x1="562" y1="126" x2="562" y2="316"/><line x1="574" y1="126" x2="574" y2="316"/>
+    <line x1="586" y1="126" x2="586" y2="316"/>
+  </g>
 
-  <!-- 말풍선 2(아래칸): 노자키, 타원, 좌중 + 긴 꼬리 -->
-  <path class="bal" d="M80 170 L63 282 L98 173 Z"/>
-  <ellipse class="bal" cx="118" cy="135" rx="105" ry="40"/>
-  <path class="balfill" d="M80 170 L63 282 L98 173 Z"/>
-  <!-- 말풍선 1(위칸): 노자키, 타원, 좌상, 꼬리 없음, 2번과 붙임 -->
-  <ellipse class="bal" cx="115" cy="62" rx="100" ry="36"/>
-  <text class="btxt" x="115" y="57">생령은 떨어지면<tspan x="115" dy="22">약해지니까.</tspan></text>
-  <text class="btxt" x="118" y="134">당분간 베타는<tspan x="118" dy="22">우편으로 하자.</tspan></text>
+  <!-- 미코시바 (중, 후경, 하단 중앙, 좌탁 너머) -->
+  <g stroke="#999" fill="none" stroke-width="1.5">
+    <path d="M288 278 q-5 -7 0 -14 q5 -7 0 -14"/><path d="M300 276 q-5 -7 0 -14 q5 -7 0 -14"/><path d="M312 278 q-5 -7 0 -14 q5 -7 0 -14"/>
+  </g>
+  <circle cx="300" cy="298" r="16" fill="#f08a8a" stroke="#333" stroke-width="2"/>
+  <rect class="ofuda" x="286" y="298" width="28" height="13"/>
+  <g fill="#7fb3e0"><path d="M320 286 q3 5 0 8 q-3 -3 0 -8 Z"/><path d="M280 284 q3 5 0 8 q-3 -3 0 -8 Z"/><path d="M324 300 q3 5 0 8 q-3 -3 0 -8 Z"/></g>
+  <!-- 손글씨 효과음: 가장 작게, 테두리 없음 -->
+  <text x="332" y="313" font-size="9" fill="#333" font-style="italic" transform="rotate(-8 332 313)">(그거 사실상…!)</text>
+  <!-- 좌탁 (3컷 그대로) -->
+  <rect class="table" x="170" y="318" width="310" height="24"/>
+  <ellipse cx="225" cy="327" rx="16" ry="5" fill="#fff" stroke="#666"/>
+  <path d="M218 326 q7 4 14 0" fill="none" stroke="#999"/>
+  <rect class="ofuda" x="250" y="322" width="8" height="15" transform="rotate(-15 254 330)"/>
+  <rect class="ofuda" x="259" y="322" width="8" height="15" transform="rotate(10 263 330)"/>
+  <rect x="380" y="322" width="34" height="16" fill="#fff" stroke="#888"/>
+  <text class="prop" x="198" y="354">소금·낱장 부적(3컷 그대로)</text>
+  <text class="prop" x="372" y="354">콘티 종이</text>
 
-  <text class="caption" x="140" y="16">배경: 방 전체(롱샷·버드아이), 휑한 바닥 / 책상 위 부적·원고 / 노자키 옆 우편 소품</text>
+  <!-- 노자키 (좌, 3컷과 같은 자리·자세) -->
+  <polygon class="body" points="128,210 182,222 168,300 152,372 90,372 100,290"/>
+  <!-- 안쪽 손: 정수리 바로 위에서 소금 뿌림 -->
+  <polyline class="limb" points="132,222 110,180 128,140"/>
+  <circle class="hand" cx="128" cy="138" r="9"/>
+  <!-- 앞쪽 손: 팔꿈치 3컷 그대로, 손목만 꺾어 손은 앞머리 위 -->
+  <polyline class="limb" points="172,224 212,248 166,148"/>
+  <circle class="head" cx="150" cy="185" r="30"/>
+  <g stroke="#555" stroke-width="1"><line x1="134" y1="161" x2="134" y2="172"/><line x1="139" y1="159" x2="139" y2="171"/><line x1="161" y1="159" x2="161" y2="171"/><line x1="166" y1="161" x2="166" y2="172"/></g>
+  <!-- 이마 한가운데 부적: 위 끝 앞머리, 아래 끝 눈썹 위 -->
+  <rect class="ofuda" x="143" y="155" width="14" height="23"/>
+  <line class="ofudaInk" x1="150" y1="159" x2="150" y2="175"/>
+  <circle class="hand" cx="166" cy="141" r="8"/>
+  <line x1="160" y1="147" x2="153" y2="156" stroke="#333" stroke-width="2"/>
+  <!-- 소금 알갱이: 머리카락·어깨 -->
+  <g fill="#999">
+    <circle cx="125" cy="152" r="1.5"/><circle cx="132" cy="157" r="1.5"/><circle cx="121" cy="164" r="1.5"/>
+    <circle cx="170" cy="160" r="1.5"/><circle cx="130" cy="212" r="1.5"/><circle cx="176" cy="219" r="1.5"/><circle cx="118" cy="208" r="1.5"/>
+  </g>
+  <!-- 효과음 탁! (이마 왼쪽 바깥, 칸 좌측 가장자리) -->
+  <text class="sfx" x="18" y="182" font-size="30" transform="rotate(-10 40 172)">탁!</text>
+
+  <!-- 치요 (우, 무릎으로 반쯤 일어섬, 톤 빠짐) -->
+  <rect x="410" y="213" width="66" height="105" rx="18" fill="url(#fade4)" stroke="#333" stroke-width="2"/>
+  <g stroke="#555" stroke-width="1" fill="none">
+    <polyline points="472,225 465,240 471,252"/><polyline points="474,268 466,282 472,296"/><polyline points="468,302 462,312"/>
+  </g>
+  <!-- 뻗은 왼팔: 손끝은 노자키 가슴 높이에서 멈춤 -->
+  <line class="limb" x1="414" y1="236" x2="270" y2="252"/>
+  <circle class="hand" cx="264" cy="252" r="7"/>
+  <circle cx="440" cy="185" r="30" fill="#e6e6e6" stroke="#333" stroke-width="2"/>
+
+  <!-- 이름표 -->
+  <text class="name" x="10" y="388">[노자키]<tspan class="expr"> 3컷과 같은 무표정·이마 세로 그림자</tspan></text>
+  <text class="name" x="300" y="404" text-anchor="middle">[미코시바]<tspan class="expr"> 2컷보다 새빨감·김↑·땀 여러 개</tspan></text>
+  <text class="name" x="595" y="388" text-anchor="end">[치요]<tspan class="expr"> 흰자 눈·크게 벌린 입·눈물 1·석화 직전</tspan></text>
+
+  <!-- 말풍선 1: 노자키, 타원, 3컷과 같은 자리·크기 -->
+  <path class="bal" d="M140 106 L152 124 L165 107 Z"/>
+  <ellipse class="bal" cx="175" cy="68" rx="130" ry="40"/>
+  <path class="balfill" d="M140 106 L152 124 L165 107 Z"/>
+  <text class="btxt" x="175" y="74">사쿠라 생각 금지.</text>
+
+  <!-- 말풍선 2: 치요 외침, 톱니, 3컷 구름과 같은 자리 (아래 가시가 꼬리) -->
+  <polygon class="bal" points="574,72 553,80 560,94 531,95 522,110 492,103 450,140 448,103 418,110 409,95 380,94 387,80 366,72 387,64 380,50 409,49 418,34 448,41 470,28 492,41 522,34 531,49 560,50 553,64"/>
+  <text class="btxt" x="470" y="68" font-size="16" font-weight="bold">그 생령<tspan x="470" dy="21">두고 가!!</tspan></text>
+
+  <text class="caption" x="10" y="414">배경: 3컷과 같은 카메라 고정 / 이마 부적 중심 칸 전체 집중선, 치요 쪽 반짝이 삭제→흰 바탕 세로 줄 톤</text>
   <rect class="num" x="0" y="0" width="30" height="24"/><text class="numtxt" x="15" y="17">4</text>
-  <rect class="frame" x="2" y="2" width="596" height="396"/>
+  <rect class="frame" x="2" y="2" width="596" height="416"/>
 </svg>
 
 <div class="memo">
   <h2>메모</h2>
   <ul>
-    <li>말풍선 종류: 일반 대사는 타원, 속마음(1컷 치요)은 구름. 3단계 지정에 톱니·사각 풍선은 없다. 효과음("탁!", "촤악", "홱 홱")은 풍선 없이 글자로 표시했다.</li>
-    <li>머리를 가려 위치를 옮긴 말풍선: 없음. 모든 풍선을 3단계 지정 위치에 두었고, 인물 머리 도형과 겹치지 않는다.</li>
-    <li>2컷: 2번 풍선은 지정대로 1번 오른쪽에 살짝 겹치고 조금 낮게 두었다(2번이 위로 오게 그림). 1번 꼬리는 2번에 가리지 않도록 1번 하단 중앙에서 오른쪽 아래로 냈다.</li>
-    <li>4컷: 위아래 풍선을 붙이고 꼬리는 아래칸 하나만 길고 가늘게 노자키에게 내렸다. 우측 상단(치요의 혼) 영역에는 대사를 두지 않았다.</li>
-    <li>배경 캡션은 2컷·4컷에서 하단 이름표와 겹치지 않도록 칸 상단에 두었다.</li>
+    <li>말풍선 종류: 일반 대사는 타원, 3컷 치요 속마음은 구름, 4컷 치요 외침은 톱니. 사각 풍선은 지정되지 않았다. 효과음 "탁!"과 "(그거 사실상…!)"는 테두리 없이 글자로만 넣었다.</li>
+    <li>머리를 가려 위치를 옮긴 말풍선: 없음. 모든 풍선을 각 칸 위쪽 띠(y 28~118) 안 지정 위치에 두었고, 꼬리 끝도 머리 원에 닿기 전에 끊었다.</li>
+    <li>1·2컷: 2번 풍선은 1번 오른쪽에 살짝 겹치고 조금 낮게 두었다. 읽는 순서가 보이도록 1번을 위에 그렸고, 2번 꼬리는 1번에 가리지 않는 아래쪽에서 냈다.</li>
+    <li>3·4컷: 노자키 풍선(타원)과 치요 풍선(구름→톱니)의 자리와 크기가 같다. 4컷 노자키 대사는 짧지만 풍선 크기를 3컷에 맞췄다. 꼬리 끝(y 124)이 머리 위 두 손(위 끝 y 129)보다 위에 있어서 납작하게 줄일 필요가 없었다. 노자키 머리·몸·팔꿈치 좌표도 두 칸이 같고, 다른 것은 부적 방향(3컷 치요 이마 겨눔 → 4컷 노자키 이마), 앞쪽 손목 각도, 소금 손 위치, 표정 텍스트, 배경 톤(반짝이·꽃 → 집중선·세로 줄 톤)뿐이다. 치요는 콘티대로 4컷에서 무릎으로 반쯤 일어서 머리가 20px 올라갔지만, 톱니 풍선 아래 끝(꼬리 끝 y 140)은 정수리(y 155)보다 위다.</li>
+    <li>1컷 콘티 종이: 칸 폭 1/4(150px)로 그리고 "생령 = 그리워하는 쪽"을 15px 굵은 글씨로 넣었다. 그 아래에 사람 낙서 → 화살표 → 꼬리 달린 혼 낙서를 그렸다.</li>
+    <li>4컷 "(그거 사실상…!)": 칸 하단 미코시바 부적 다발 바로 오른쪽 아래에 9px로 넣었다("탁!"은 30px). 콘티의 "하단 모서리(미코시바 다발 옆)"를 다발 옆 우선으로 읽어서 넣은 것이다. 칸 귀퉁이 쪽이어야 한다면 오른쪽 아래로 옮기면 된다.</li>
   </ul>
 </div>
 </div>
