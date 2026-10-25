@@ -2,7 +2,7 @@
 
 사용: python -I references/tools/extract_pattern_atlas.py <도감.html> [출력폴더=references/nozaki]
 
-- 00~03 파일: 분석 요약(통계·유형·흐름·호 구성). 커밋 대상.
+- 00~04 파일: 분석 요약(통계·유형·흐름·호 구성)과 편 ID 목록. 커밋 대상.
 - strips/vol*.md: 902편 목록(컷별 대사 전사 포함). 원작 대사가 들어 있어 .gitignore 로 커밋에서 뺀다.
 """
 import html
@@ -79,6 +79,12 @@ for c in CH:
     top = ", ".join(f"{tname.get(k, '새 패턴')} {v}" for k, v in sorted(cnt.items(), key=lambda x: -x[1])[:2])
     lines.append(f"| {c['id']} | {c['vol']} | {c.get('theme','')} | {len(s)} | {top} |")
 (out / "03_issues.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+lines = ["# 편 ID 목록 (902편)\n", "근거를 적을 때 이 목록의 ID만 쓴다. 줄번호를 ID로 쓰지 않는다. 내용은 strips/ 참고.\n",
+         "| ID | 제목 | 유형 | 호 | 등장 |", "| --- | --- | --- | --- | --- |"]
+for d in strips:
+    lines.append(f"| {d['id']} | {d['title']} | {d['t2']} | {d['ch']} | {', '.join(d.get('chars', []))} |")
+(out / "04_index.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 for v in range(1, 8):
     rows = [f"# {v}권 편 목록 (도감 데이터)\n", "필드: 유형 / 등장 / 컷별 내용 / 웃음 원리 / 여지(복선) / 3컷 역할 / 마무리 / 지적 담당 / 연결 / 메모\n"]
